@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>UnraidDashboard</Name>
+  <Repository>ghcr.io/petrandev/unraiddashboard:latest</Repository>
+  <Registry>https://github.com/PetranDev/UnraidDashboard/pkgs/container/unraiddashboard</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/PetranDev/UnraidDashboard/issues</Support>
+  <Project>https://github.com/PetranDev/UnraidDashboard</Project>
+  <Overview>A compact monitoring dashboard designed for Unraid servers and small rack displays.</Overview>
+  <Category>Tools: Status:Other</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/PetranDev/PublicAssets/master/UnraidDashboard/templates/unraiddashboard.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/PetranDev/PublicAssets/master/UnraidDashboard/images/unraiddashboard.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>Unraid 7.2 or newer. A read-only Unraid API key is required.</Requires>
+  <Config Name="Web UI" Target="8080" Default="8080" Mode="tcp" Description="UnraidDashboard web interface port." Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="Configuration" Target="/config" Default="/mnt/user/appdata/unraiddashboard" Mode="rw" Description="Persistent UnraidDashboard configuration." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/unraiddashboard</Config>
+  <Config Name="Unraid disk state" Target="/unraid/disks.ini" Default="/usr/local/emhttp/state/disks.ini" Mode="ro" Description="Read-only access to Unraid cached disk state. Used without waking sleeping disks." Type="Path" Display="advanced" Required="true" Mask="false">/usr/local/emhttp/state/disks.ini</Config>
+  <Config Name="Unraid Docker templates" Target="/unraid/docker-templates" Default="/boot/config/plugins/dockerMan/templates-user" Mode="ro" Description="Read-only access to Unraid Docker templates for container icons and WebUI metadata." Type="Path" Display="advanced" Required="true" Mask="false">/boot/config/plugins/dockerMan/templates-user</Config>
+  <Config Name="Admin Password" Target="Authentication__AdminPassword" Default="" Mode="" Description="Password used to access UnraidDashboard settings." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+</Container>
